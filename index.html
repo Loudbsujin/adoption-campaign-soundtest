@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>당신의 백색소음 — 지훈이네 토요일 저녁</title>
+  <meta name="description" content="당신을 가장 편안하게 하는 백색소음은 무엇인가요? 일상의 소리를 조합해 보세요." />
+  <meta name="theme-color" content="#0a0a0f" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main id="stage">
+
+    <section id="phase-hook" class="phase" data-active="true" aria-labelledby="hook-title">
+      <div class="phase-inner hook-inner">
+        <p class="eyebrow">눈을 감고, 떠올려 보세요</p>
+        <h1 id="hook-title">
+          당신을 가장 편안하게 하는<br />
+          <em>‘백색소음’</em>은 무엇인가요?
+        </h1>
+        <p class="hook-sub">소리만으로도 우리는, 어딘가에 있는 듯한 느낌을 받습니다.</p>
+        <button id="start-btn" class="primary-btn" type="button">시작하기</button>
+      </div>
+    </section>
+
+    <section id="phase-interaction" class="phase" data-active="false" aria-labelledby="mix-title">
+      <div class="phase-inner">
+        <header class="mix-header">
+          <h2 id="mix-title">일상의 소리 <span>3~4가지</span>를 골라<br />당신만의 ASMR을 만들어 보세요</h2>
+          <p class="mix-sub" id="mix-sub" aria-live="polite">소리를 켜고 볼륨을 조절해 보세요.</p>
+        </header>
+
+        <div id="sound-grid" class="sound-grid" role="group" aria-label="사운드 선택"></div>
+
+        <footer class="mix-footer">
+          <p class="count-indicator" aria-live="polite">
+            선택된 소리 <strong id="count-num">0</strong> / 6
+          </p>
+          <button id="reveal-btn" class="primary-btn" type="button" disabled>완성</button>
+        </footer>
+      </div>
+    </section>
+
+    <section id="phase-reveal" class="phase" data-active="false" aria-labelledby="reveal-title">
+      <div class="reveal-media">
+        <video
+          id="reveal-video"
+          playsinline
+          muted
+          loop
+          preload="metadata"
+          poster="assets/img/reveal.jpg"
+        >
+          <source src="assets/video/reveal.mp4" type="video/mp4" />
+        </video>
+        <img id="reveal-fallback" class="reveal-fallback" src="assets/img/reveal.jpg" alt="" hidden />
+        <div class="reveal-vignette" aria-hidden="true"></div>
+      </div>
+
+      <div class="reveal-overlay" id="reveal-overlay" aria-hidden="true"></div>
+
+      <div class="reveal-copy" id="reveal-copy">
+        <h2 id="reveal-title">
+          당신이 방금 조합한<br />
+          <em>평범하고 따뜻한 소리들.</em>
+        </h2>
+        <p class="reveal-body">
+          이것은 최근 입양으로 가족이 된<br />
+          <strong>지훈이네 가족의 토요일 저녁</strong>입니다.
+        </p>
+        <p class="reveal-tag">가족이 되는 데에 특별한 이유는 필요하지 않습니다.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

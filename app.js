@@ -1,14 +1,26 @@
 (() => {
   'use strict';
 
+  // ========================================================================
+  // 자산 파일 경로 설정 — 업로드한 파일 이름에 맞춰 이 부분만 수정하세요.
+  //   - label / hint  : 화면에 노출되는 텍스트
+  //   - file          : 실제 업로드한 사운드 파일 경로
+  //   - id            : 내부 식별자 (고유하면 자유롭게 변경 가능)
+  // ========================================================================
   const SOUNDS = [
-    { id: 'stew',     label: '보글보글 찌개',  hint: '주방에서 들려오는' },
-    { id: 'laughter', label: '예능 웃음소리',  hint: '거실 TV에서' },
-    { id: 'scissors', label: '서툰 가위질',    hint: '아이가 만들기 중' },
-    { id: 'dishes',   label: '달그락 식기',    hint: '저녁 준비' },
-    { id: 'broom',    label: '빗자루질',       hint: '베란다 청소' },
-    { id: 'clock',    label: '째깍 시계',      hint: '벽시계 초침' },
+    { id: 'stew',     label: '보글보글 찌개', hint: '주방에서 들려오는', file: 'assets/sounds/stew.mp3' },
+    { id: 'laughter', label: '예능 웃음소리', hint: '거실 TV에서',       file: 'assets/sounds/laughter.mp3' },
+    { id: 'scissors', label: '서툰 가위질',   hint: '아이가 만들기 중',  file: 'assets/sounds/scissors.mp3' },
+    { id: 'dishes',   label: '달그락 식기',   hint: '저녁 준비',         file: 'assets/sounds/dishes.mp3' },
+    { id: 'broom',    label: '빗자루질',      hint: '베란다 청소',       file: 'assets/sounds/broom.mp3' },
+    { id: 'clock',    label: '째깍 시계',     hint: '벽시계 초침',       file: 'assets/sounds/clock.mp3' },
   ];
+
+  const REVEAL_ASSETS = {
+    video: 'assets/video/reveal.mp4',
+    image: 'assets/img/reveal.jpg',
+  };
+  // ========================================================================
 
   const FADE_IN_S = 0.8;
   const FADE_OUT_S = 0.6;
@@ -87,7 +99,7 @@
   }
 
   function prepareTrack(s) {
-    const audio = new Audio(`assets/sounds/${s.id}.mp3`);
+    const audio = new Audio(s.file);
     audio.loop = true;
     audio.preload = 'auto';
     audio.crossOrigin = 'anonymous';
@@ -237,7 +249,14 @@
   }
 
   // ---------- Init ----------
+  function applyRevealAssets() {
+    revealVideo.src = REVEAL_ASSETS.video;
+    revealVideo.poster = REVEAL_ASSETS.image;
+    revealFallback.src = REVEAL_ASSETS.image;
+  }
+
   function init() {
+    applyRevealAssets();
     buildCards();
     startBtn.addEventListener('click', startInteraction);
     revealBtn.addEventListener('click', () => {

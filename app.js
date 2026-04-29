@@ -252,6 +252,15 @@
   function applyRevealAssets() {
     revealVideo.src = REVEAL_ASSETS.video;
     revealVideo.poster = REVEAL_ASSETS.image;
+    revealVideo.loop = true;
+    revealVideo.autoplay = true;
+    revealVideo.muted = true;
+    revealVideo.playsInline = true;
+    revealVideo.addEventListener('ended', () => {
+      revealVideo.currentTime = 0;
+      const p = revealVideo.play();
+      if (p && typeof p.catch === 'function') p.catch(() => {});
+    });
     revealFallback.src = REVEAL_ASSETS.image;
   }
 

@@ -23,7 +23,7 @@
 
   // 콜투액션 설정 — 캠페인 상세 페이지 URL과 공유 시 노출 문구를 지정합니다.
   const CTA = {
-    landingUrl: 'https://example.com/adopt',     // ← 실제 캠페인/단체 랜딩 URL로 교체
+    landingUrl: 'https://www.ncrc.or.kr/ncrc/main.do', // 아동권리보장원 (NCRC)
     landingLabel: '캠페인 자세히 보기',
     shareTitle: '지훈이네 가족의 토요일 저녁',
     shareText: '당신을 가장 편안하게 하는 백색소음은 무엇인가요?',

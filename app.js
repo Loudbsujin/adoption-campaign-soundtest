@@ -21,8 +21,8 @@
   ];
 
   const REVEAL_ASSETS = {
-    video: 'assets/video/reveal.mp4',
-    image: 'assets/img/reveal.jpg',
+    video: 'https://res.cloudinary.com/djkmug6x4/video/upload/v1777425708/hf_20260429_005900_c8897626-0681-463b-8562-715e8f1f3361_hqepmx.mp4',
+    image: 'assets/img/endingimage.png',
   };
 
   // 콜투액션 설정 — 캠페인 상세 페이지 URL과 공유 시 노출 문구를 지정합니다.

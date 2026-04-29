@@ -9,9 +9,9 @@
   // ========================================================================
   const SOUNDS = [
     { id: 'stew',     label: '보글보글 찌개', hint: '주방에서 들려오는', file: 'assets/sounds/stew.mp3' },
-    { id: 'laughter', label: '예능 웃음소리', hint: '거실 TV에서',       file: 'assets/sounds/laughter.mp3' },
-    { id: 'scissors', label: '서툰 가위질',   hint: '아이가 만들기 중',  file: 'assets/sounds/scissors.mp3' },
-    { id: 'dishes',   label: '달그락 식기',   hint: '저녁 준비',         file: 'assets/sounds/dishes.mp3' },
+    { id: 'kitchen',  label: '도마질 소리',   hint: '엄마의 저녁 준비',  file: 'assets/sounds/kitchen.mp3' },
+    { id: 'laundry',  label: '세탁기 소리',   hint: '주말의 빨래',       file: 'assets/sounds/Laundry%20Washing%20Machine.mp3' },
+    { id: 'dishes',   label: '달그락 식기',   hint: '저녁상을 차리며',   file: 'assets/sounds/dishes.mp3' },
     { id: 'broom',    label: '빗자루질',      hint: '베란다 청소',       file: 'assets/sounds/assetssoundsbroom.wav' },
     { id: 'clock',    label: '째깍 시계',     hint: '벽시계 초침',       file: 'assets/sounds/clock.mp3' },
   ];

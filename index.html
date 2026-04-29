@@ -60,10 +60,30 @@
           <strong>지훈이네 가족의 토요일 저녁</strong>입니다.
         </p>
         <p class="reveal-tag">가족이 되는 데에 특별한 이유는 필요하지 않습니다.</p>
+
+        <div class="reveal-actions">
+          <a id="cta-landing" class="cta-btn cta-primary" href="#" target="_blank" rel="noopener">
+            <span class="cta-label">캠페인 자세히 보기</span>
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </a>
+          <button id="cta-share" class="cta-btn cta-ghost" type="button">
+            <svg class="cta-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+              <circle cx="18" cy="5" r="3" />
+              <circle cx="6" cy="12" r="3" />
+              <circle cx="18" cy="19" r="3" />
+              <path d="M8.6 13.5l6.9 4M15.5 6.5l-6.9 4" stroke-linecap="round" />
+            </svg>
+            <span class="cta-label">공유하기</span>
+          </button>
+        </div>
       </div>
     </section>
 
   </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <script src="app.js" defer></script>
 </body>

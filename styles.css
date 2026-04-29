@@ -45,13 +45,23 @@ body { line-height: 1.55; }
   position: absolute;
   inset: 0;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: safe center;
+  justify-content: safe center;
   padding: clamp(24px, 5vw, 64px);
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 900ms var(--ease), transform 900ms var(--ease);
   pointer-events: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.phase::-webkit-scrollbar { width: 8px; }
+.phase::-webkit-scrollbar-track { background: transparent; }
+.phase::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
 }
 
 .phase[data-active="true"] {
@@ -412,10 +422,93 @@ body { line-height: 1.55; }
 }
 
 .reveal-tag {
-  margin: 0;
+  margin: 0 0 28px;
   font-size: 14px;
   letter-spacing: 0.04em;
   color: var(--ink-dim);
+}
+
+.reveal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.cta-btn {
+  appearance: none;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 13px 24px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: transform 220ms var(--ease), box-shadow 220ms var(--ease),
+    background 220ms var(--ease), border-color 220ms var(--ease);
+}
+
+.cta-btn:focus-visible { outline: 2px solid var(--warm); outline-offset: 3px; }
+
+.cta-primary {
+  color: #1a1305;
+  background: linear-gradient(135deg, var(--accent) 0%, var(--warm-strong) 100%);
+  box-shadow: 0 8px 28px -8px rgba(255, 185, 104, 0.55);
+}
+
+.cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 36px -10px rgba(255, 185, 104, 0.65);
+}
+
+.cta-ghost {
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.cta-ghost:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+
+.cta-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+/* ---------- Toast ---------- */
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%) translateY(14px);
+  padding: 12px 22px;
+  background: rgba(20, 20, 28, 0.94);
+  color: var(--ink);
+  font-size: 14px;
+  letter-spacing: 0.01em;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 280ms var(--ease), transform 280ms var(--ease);
+  z-index: 100;
+}
+
+.toast.is-shown {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
 
 /* ---------- Reduced motion ---------- */

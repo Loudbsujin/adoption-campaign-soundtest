@@ -20,6 +20,14 @@
     video: 'assets/video/reveal.mp4',
     image: 'assets/img/reveal.jpg',
   };
+
+  // 콜투액션 설정 — 캠페인 상세 페이지 URL과 공유 시 노출 문구를 지정합니다.
+  const CTA = {
+    landingUrl: 'https://example.com/adopt',     // ← 실제 캠페인/단체 랜딩 URL로 교체
+    landingLabel: '캠페인 자세히 보기',
+    shareTitle: '지훈이네 가족의 토요일 저녁',
+    shareText: '당신을 가장 편안하게 하는 백색소음은 무엇인가요?',
+  };
   // ========================================================================
 
   const FADE_IN_S = 0.8;
@@ -46,6 +54,10 @@
   const revealVideo = $('#reveal-video');
   const revealFallback = $('#reveal-fallback');
   const revealCopy = $('#reveal-copy');
+  const ctaLanding = $('#cta-landing');
+  const ctaShare = $('#cta-share');
+  const toastEl = $('#toast');
+  let toastTimer = null;
 
   // ---------- Render sound cards ----------
   function buildCards() {
@@ -264,14 +276,60 @@
     revealFallback.src = REVEAL_ASSETS.image;
   }
 
+  function applyCTA() {
+    ctaLanding.href = CTA.landingUrl;
+    const labelEl = ctaLanding.querySelector('.cta-label');
+    if (labelEl) labelEl.textContent = CTA.landingLabel;
+  }
+
+  function showToast(msg) {
+    if (!toastEl) return;
+    toastEl.textContent = msg;
+    toastEl.classList.add('is-shown');
+    if (toastTimer) clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => {
+      toastEl.classList.remove('is-shown');
+    }, 2400);
+  }
+
+  async function copyShareLink() {
+    const url = window.location.href;
+    try {
+      await navigator.clipboard.writeText(url);
+      showToast('링크가 복사되었습니다');
+    } catch (err) {
+      showToast('링크를 직접 복사해 주세요');
+    }
+  }
+
+  async function handleShare() {
+    const data = {
+      title: CTA.shareTitle,
+      text: CTA.shareText,
+      url: window.location.href,
+    };
+    if (navigator.share) {
+      try {
+        await navigator.share(data);
+        return;
+      } catch (err) {
+        if (err && err.name === 'AbortError') return;
+        // Fall through to clipboard fallback on any other error
+      }
+    }
+    copyShareLink();
+  }
+
   function init() {
     applyRevealAssets();
+    applyCTA();
     buildCards();
     startBtn.addEventListener('click', startInteraction);
     revealBtn.addEventListener('click', () => {
       if (revealBtn.disabled) return;
       playReveal();
     });
+    ctaShare.addEventListener('click', handleShare);
     updateCount();
   }
 

@@ -10,9 +10,13 @@
   const SOUNDS = [
     { id: 'stew',     label: '보글보글 찌개', hint: '주방에서 들려오는', file: 'assets/sounds/stew.mp3' },
     { id: 'kitchen',  label: '도마질 소리',   hint: '엄마의 저녁 준비',  file: 'assets/sounds/kitchen.mp3' },
-    { id: 'laundry',  label: '세탁기 소리',   hint: '주말의 빨래',       file: 'assets/sounds/Laundry%20Washing%20Machine.mp3' },
+    { id: 'kettle',   label: '끓는 주전자',   hint: '차 한 잔의 시간',    file: 'assets/sounds/kettle.mp3' },
     { id: 'dishes',   label: '달그락 식기',   hint: '저녁상을 차리며',   file: 'assets/sounds/dishes.mp3' },
+    { id: 'tv',       label: '거실 TV 소리',  hint: '예능을 보는 식구들', file: 'assets/sounds/tv.mp3' },
+    { id: 'pages',    label: '책장 넘기기',   hint: '거실에서 책 읽는',  file: 'assets/sounds/pages.mp3' },
+    { id: 'laundry',  label: '세탁기 소리',   hint: '주말의 빨래',       file: 'assets/sounds/Laundry%20Washing%20Machine.mp3' },
     { id: 'broom',    label: '빗자루질',      hint: '베란다 청소',       file: 'assets/sounds/assetssoundsbroom.wav' },
+    { id: 'rain',     label: '창밖 빗소리',   hint: '베란다 너머로',     file: 'assets/sounds/rain.mp3' },
     { id: 'clock',    label: '째깍 시계',     hint: '벽시계 초침',       file: 'assets/sounds/clock.mp3' },
   ];
 
@@ -50,6 +54,7 @@
   const startBtn = $('#start-btn');
   const revealBtn = $('#reveal-btn');
   const countNum = $('#count-num');
+  const countTotal = $('#count-total');
   const mixSub = $('#mix-sub');
   const revealVideo = $('#reveal-video');
   const revealFallback = $('#reveal-fallback');
@@ -323,6 +328,7 @@
   function init() {
     applyRevealAssets();
     applyCTA();
+    if (countTotal) countTotal.textContent = String(SOUNDS.length);
     buildCards();
     startBtn.addEventListener('click', startInteraction);
     revealBtn.addEventListener('click', () => {

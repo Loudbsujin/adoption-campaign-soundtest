@@ -12,7 +12,7 @@
     { id: 'laughter', label: '예능 웃음소리', hint: '거실 TV에서',       file: 'assets/sounds/laughter.mp3' },
     { id: 'scissors', label: '서툰 가위질',   hint: '아이가 만들기 중',  file: 'assets/sounds/scissors.mp3' },
     { id: 'dishes',   label: '달그락 식기',   hint: '저녁 준비',         file: 'assets/sounds/dishes.mp3' },
-    { id: 'broom',    label: '빗자루질',      hint: '베란다 청소',       file: 'assets/sounds/broom.mp3' },
+    { id: 'broom',    label: '빗자루질',      hint: '베란다 청소',       file: 'assets/sounds/assetssoundsbroom.wav' },
     { id: 'clock',    label: '째깍 시계',     hint: '벽시계 초침',       file: 'assets/sounds/clock.mp3' },
   ];
 
